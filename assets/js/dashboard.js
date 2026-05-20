@@ -1,10 +1,9 @@
-/* ══════════════════════════════════════════════════════════════
+﻿/* ══════════════════════════════════════════════════════════════
    EVENTURA — dashboard.js
    Dashboard interactivo con Chart.js. Muestra datos de la
    metodología activa sin revelar su nombre en el contenido.
 ══════════════════════════════════════════════════════════════ */
 
-var barChartInst   = null;
 var donutChartInst = null;
 
 /* ════════════════════════════════════════
@@ -15,7 +14,6 @@ function renderDashboard(data) {
   if (!container) return;
 
   /* Destruir gráficas anteriores para evitar errores de Canvas */
-  if (barChartInst)   { barChartInst.destroy();   barChartInst   = null; }
   if (donutChartInst) { donutChartInst.destroy();  donutChartInst = null; }
 
   /* Caso: XP (blank) */
@@ -31,33 +29,26 @@ function renderDashboard(data) {
 
   var dash = data.dashboard;
 
-  /* Inversi\u00f3n acumulada por per\u00edodo */
-  var cumulative = [];
-  for (var p = 0; p < dash.totalCiclos; p++) {
-    cumulative.push(Math.round(dash.ciclosCosto * (p + 1)));
-  }
-
   /* ── KPI Cards ── */
   var kpiHTML = dash.kpis.map(function(kpi) {
     var cls = kpi.acento === 'purple' ? ' kpi-purple' : kpi.acento === 'dark' ? ' kpi-dark' : '';
     return '<div class="kpi-card' + cls + '">' +
       '<div class="kpi-label">' + kpi.label + '</div>' +
       '<div class="kpi-value">' + kpi.valor + '</div>' +
+      (kpi.sub ? '<div style="font-size:11px;color:var(--ev-gray);margin-top:-2px;">' + kpi.sub + '</div>' : '') +
     '</div>';
   }).join('');
 
-  /* ── SLA Bars ── */
-  var slaHTML = dash.slas.map(function(sla) {
-    var target = Math.min(sla.target, 100);
-    var cls    = sla.color === 'purple' ? ' purple' : '';
-    return '<div class="sla-item">' +
-      '<div class="sla-header">' +
-        '<span class="sla-label">' + sla.label + '</span>' +
-        '<span class="sla-pct">' + sla.target + sla.unit + '</span>' +
+  /* ── Ciclos ── */
+  var ciclosHTML = dash.ciclos.map(function(c, i) {
+    var border = i < dash.ciclos.length - 1 ? 'border-bottom:0.5px solid var(--color-border-tertiary);' : '';
+    return '<div style="display:flex;align-items:center;gap:10px;padding:5px 0;' + border + '">' +
+      '<span style="font-size:11px;font-weight:500;color:var(--color-text-tertiary);width:20px;flex-shrink:0;">' + c.id + '</span>' +
+      '<span style="font-size:11px;color:var(--color-text-tertiary);width:34px;flex-shrink:0;">' + c.semanas + '</span>' +
+      '<div style="flex:1;height:6px;border-radius:3px;background:var(--color-border-tertiary);overflow:hidden;">' +
+        '<div style="width:100%;height:100%;background:' + c.color + ';border-radius:3px;"></div>' +
       '</div>' +
-      '<div class="sla-bar">' +
-        '<div class="sla-fill' + cls + '" data-target="' + target + '" style="width:0%"></div>' +
-      '</div>' +
+      '<span style="font-size:11px;color:var(--color-text-secondary);min-width:0;flex:2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + c.nombre + '</span>' +
     '</div>';
   }).join('');
 
@@ -83,22 +74,11 @@ function renderDashboard(data) {
 
     '<div class="charts-row">' +
       '<div class="chart-card">' +
-        '<div class="chart-card-title">Inversi\u00f3n Acumulada por Per\u00edodo (Q)</div>' +
-        '<div class="chart-card-inner"><canvas id="barChart"></canvas></div>' +
-      '</div>' +
-      '<div class="chart-card">' +
         '<div class="chart-card-title">Distribuci\u00f3n del Equipo</div>' +
         '<div class="donut-wrap">' +
           '<canvas id="donutChart" width="200" height="200"></canvas>' +
           '<div class="donut-legend">' + legendHTML + '</div>' +
         '</div>' +
-      '</div>' +
-    '</div>' +
-
-    '<div class="bottom-row">' +
-      '<div class="chart-card">' +
-        '<div class="chart-card-title">M\u00e9tricas de Calidad y SLA</div>' +
-        slaHTML +
       '</div>' +
       '<div class="chart-card">' +
         '<div class="chart-card-title">Indicadores Financieros</div>' +
@@ -109,85 +89,16 @@ function renderDashboard(data) {
         '</div>' +
         '<div class="fin-note">Valores a definir con el cliente al inicio del proyecto.</div>' +
       '</div>' +
+      '<div class="chart-card">' +
+        '<div class="chart-card-title">Cronograma de ciclos</div>' +
+        '<div id="cycles-list">' + ciclosHTML + '</div>' +
+      '</div>' +
     '</div>';
 
   /* Inicializar charts tras pintado del DOM */
   setTimeout(function() {
-    initBarChart(cumulative, dash.labelCiclos);
     initDonutChart(dash.equipo);
-    /* Animar SLA bars */
-    setTimeout(function() {
-      document.querySelectorAll('.sla-fill').forEach(function(fill) {
-        fill.style.width = fill.dataset.target + '%';
-      });
-    }, 120);
   }, 60);
-}
-
-/* ════════════════════════════════════════
-   GRÁFICA DE BARRAS — Inversión acumulada
-════════════════════════════════════════ */
-function initBarChart(cumulative, labels) {
-  var canvas = document.getElementById('barChart');
-  if (!canvas) return;
-
-  barChartInst = new Chart(canvas.getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Inversión Acumulada',
-        data: cumulative,
-        backgroundColor: labels.map(function(_, i) {
-          return i === labels.length - 1 ? '#FF4500' : 'rgba(255,69,0,0.52)';
-        }),
-        hoverBackgroundColor: labels.map(function(_, i) {
-          return i === labels.length - 1 ? '#FF6B35' : 'rgba(255,69,0,0.75)';
-        }),
-        borderRadius: 7,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#1A1745',
-          titleFont: { family: 'Outfit', size: 13, weight: '600' },
-          bodyFont:  { family: 'Outfit', size: 13 },
-          callbacks: {
-            label: function(ctx) {
-              return ' Q\u00a0' + ctx.parsed.y.toLocaleString('es-GT', { minimumFractionDigits: 2 });
-            }
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { display: false },
-          ticks: {
-            font: { family: 'Outfit', size: 13, weight: '600' },
-            color: '#6B6B8A'
-          }
-        },
-        y: {
-          grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
-          border: { display: false },
-          ticks: {
-            font: { family: 'Outfit', size: 12 },
-            color: '#6B6B8A',
-            callback: function(val) {
-              if (val >= 1000000) return 'Q' + (val / 1000000).toFixed(1) + 'M';
-              return 'Q' + (val / 1000).toFixed(0) + 'k';
-            }
-          }
-        }
-      }
-    }
-  });
 }
 
 /* ════════════════════════════════════════

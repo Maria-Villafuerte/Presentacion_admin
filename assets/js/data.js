@@ -105,7 +105,8 @@ const METODOLOGIAS = {
         { label: 'Costo Total',      valor: 'Q333,593.75', acento: 'orange' },
         { label: 'Duración',         valor: '3.5 meses',   acento: 'purple' },
         { label: 'Ciclos',           valor: '7 × 2 sem',   acento: 'dark'   },
-        { label: 'Costo por ciclo',  valor: 'Q47,656.25',  acento: 'orange' }
+        { label: 'Costo por ciclo',  valor: 'Q47,656.25',  acento: 'orange' },
+        { label: 'Forma de pago',    valor: 'Mensual fijo', acento: 'dark', sub: 'Días 1–5 de cada mes' }
       ],
       ciclosCosto: 47656.25,
       totalCiclos: 7,
@@ -122,6 +123,15 @@ const METODOLOGIAS = {
         { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',   color: 'orange' },
         { label: 'Uptime en producción',          target: 99.5, unit: '%',   color: 'orange' },
         { label: 'Módulos entregados',            target: 100,  unit: '% (8/8)', color: 'purple' }
+      ],
+      ciclos: [
+        { id: 'C1', semanas: 'S1–2',   nombre: 'Auth & búsqueda básica',           color: '#378ADD' },
+        { id: 'C2', semanas: 'S3–4',   nombre: 'Pagos, boletos QR & FEL',          color: '#378ADD' },
+        { id: 'C3', semanas: 'S5–6',   nombre: 'Creación de eventos',              color: '#1D9E75' },
+        { id: 'C4', semanas: 'S7–8',   nombre: 'Edición & borradores',             color: '#1D9E75' },
+        { id: 'C5', semanas: 'S9–10',  nombre: 'Operación completa',               color: '#7F77DD' },
+        { id: 'C6', semanas: 'S11–12', nombre: 'QR offline & calificaciones',      color: '#7F77DD' },
+        { id: 'C7', semanas: 'S13–14', nombre: 'Notificaciones, reportes, DevOps', color: '#BA7517' }
       ]
     }
   },
@@ -212,7 +222,8 @@ const METODOLOGIAS = {
         { label: 'Costo Total',           valor: 'Q333,593.75', acento: 'orange' },
         { label: 'Duración',              valor: '3.5 meses',   acento: 'purple' },
         { label: 'Velocidad promedio',    valor: '63 pts/ciclo', acento: 'dark'  },
-        { label: 'Costo por ciclo',       valor: 'Q47,656.25',  acento: 'orange' }
+        { label: 'Costo por ciclo',       valor: 'Q47,656.25',  acento: 'orange' },
+        { label: 'Forma de pago',         valor: 'Mensual fijo', acento: 'dark', sub: 'Días 1–5 de cada mes' }
       ],
       ciclosCosto: 47656.25,
       totalCiclos: 7,
@@ -229,6 +240,15 @@ const METODOLOGIAS = {
         { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',   color: 'orange' },
         { label: 'Uptime en producción',          target: 99.5, unit: '%',   color: 'orange' },
         { label: 'Módulos entregados',            target: 100,  unit: '% (8/8)', color: 'purple' }
+      ],
+      ciclos: [
+        { id: 'C1', semanas: 'S1–2',   nombre: 'Login + búsqueda básica',          color: '#378ADD' },
+        { id: 'C2', semanas: 'S3–4',   nombre: 'Compra, pagos y boletos QR',       color: '#378ADD' },
+        { id: 'C3', semanas: 'S5–6',   nombre: 'Creación de eventos — CMS',        color: '#1D9E75' },
+        { id: 'C4', semanas: 'S7–8',   nombre: 'Gestión avanzada — parte 1',       color: '#1D9E75' },
+        { id: 'C5', semanas: 'S9–10',  nombre: 'Gestión avanzada — parte 2',       color: '#7F77DD' },
+        { id: 'C6', semanas: 'S11–12', nombre: 'Control QR + notificaciones',      color: '#7F77DD' },
+        { id: 'C7', semanas: 'S13–14', nombre: 'Reportes + publicación + DevOps',  color: '#BA7517' }
       ]
     }
   },
@@ -321,7 +341,8 @@ const METODOLOGIAS = {
         { label: 'Costo Total',           valor: 'Q658,000.00',   acento: 'orange' },
         { label: 'Duración',              valor: '7 meses',       acento: 'purple' },
         { label: 'Velocidad sostenida',   valor: '2.43 tar./día', acento: 'dark'  },
-        { label: 'Total de tareas',       valor: '214 tareas',    acento: 'orange' }
+        { label: 'Total de tareas',       valor: '214 tareas',    acento: 'orange' },
+        { label: 'Forma de pago',         valor: 'Mensual',       acento: 'dark',  sub: 'Días 1–5 de cada mes' }
       ],
       ciclosCosto: 94000,
       totalCiclos: 7,
@@ -338,6 +359,15 @@ const METODOLOGIAS = {
         { label: 'Respuesta de API ≤500ms',     target: 95, unit: '%',              color: 'orange' },
         { label: 'Cobertura de pruebas',         target: 70, unit: '% (mínimo)',     color: 'purple' },
         { label: 'Tiempo tarea M (≤5 días)',     target: 100, unit: '% cumplimiento', color: 'orange' }
+      ],
+      ciclos: [
+        { id: 'M1', semanas: 'Mes 1', nombre: 'Login, Auth, roles y permisos',           color: '#378ADD' },
+        { id: 'M2', semanas: 'Mes 2', nombre: 'Búsqueda, filtros, eventos destacados',   color: '#378ADD' },
+        { id: 'M3', semanas: 'Mes 3', nombre: 'Carrito, pagos, FEL, boletos QR',         color: '#1D9E75' },
+        { id: 'M4', semanas: 'Mes 4', nombre: 'Creación/edición de eventos',             color: '#1D9E75' },
+        { id: 'M5', semanas: 'Mes 5', nombre: 'Escáner QR, modo sin internet',           color: '#7F77DD' },
+        { id: 'M6', semanas: 'Mes 6', nombre: 'Dashboards, reportes, notificaciones',    color: '#7F77DD' },
+        { id: 'M7', semanas: 'Mes 7', nombre: 'Cloud, auto-scaling, CI/CD',              color: '#BA7517' }
       ]
     }
   },
@@ -428,7 +458,8 @@ const METODOLOGIAS = {
         { label: 'Costo Total',          valor: 'Q228,667.00',   acento: 'orange' },
         { label: 'Duración',             valor: '3.5 meses',     acento: 'purple' },
         { label: 'Velocidad objetivo',   valor: '44 pts/ciclo',  acento: 'dark'   },
-        { label: 'Mínimo garantizado',   valor: '31 pts/ciclo',  acento: 'orange' }
+        { label: 'Mínimo garantizado',   valor: '31 pts/ciclo',  acento: 'orange' },
+        { label: 'Forma de pago',        valor: '4 pagos',       acento: 'dark',  sub: '3 completos + 1 prop.' }
       ],
       ciclosCosto: 32666.71,
       totalCiclos: 7,
@@ -445,6 +476,15 @@ const METODOLOGIAS = {
         { label: 'Respuesta de API ≤500ms',  target: 95, unit: '%',              color: 'orange' },
         { label: 'Cobertura de pruebas',      target: 70, unit: '% (mínimo)',     color: 'purple' },
         { label: 'Disponibilidad staging',    target: 99, unit: '%',              color: 'orange' }
+      ],
+      ciclos: [
+        { id: 'C1', semanas: 'S1–2',   nombre: 'Login, Auth Google, búsqueda básica',  color: '#378ADD' },
+        { id: 'C2', semanas: 'S3–4',   nombre: 'Búsqueda avanzada, pagos, boletos QR', color: '#378ADD' },
+        { id: 'C3', semanas: 'S5–6',   nombre: 'Creación de eventos',                  color: '#1D9E75' },
+        { id: 'C4', semanas: 'S7–8',   nombre: 'Edición, duplicado y borradores',      color: '#1D9E75' },
+        { id: 'C5', semanas: 'S9–10',  nombre: 'Reprogramar, cancelar, compartir',     color: '#7F77DD' },
+        { id: 'C6', semanas: 'S11–12', nombre: 'Calificaciones, QR offline',           color: '#7F77DD' },
+        { id: 'C7', semanas: 'S13–14', nombre: 'Notificaciones, reportes, DevOps',     color: '#BA7517' }
       ]
     }
   },

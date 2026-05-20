@@ -1014,7 +1014,7 @@ img { display: block; }
 /* ── KPI Grid ── */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 18px;
 }
 .kpi-card {
@@ -1051,7 +1051,7 @@ img { display: block; }
 /* ── Charts Row ── */
 .charts-row {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 22px;
 }
 .chart-card {
