@@ -7,7 +7,7 @@
   'use strict';
 
   /* ── Estado global ── */
-  let activeMethod = 'A';
+  let activeMethod = 'B';
   let activeView   = 'presentation';
 
   /* ── Referencias DOM ── */

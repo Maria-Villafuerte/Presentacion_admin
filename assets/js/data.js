@@ -25,7 +25,7 @@ const METODOLOGIAS = {
           { ciclo: 'Ciclo 4', semanas: '7–8',  entregable: 'Edición, duplicado y borradores de eventos' },
           { ciclo: 'Ciclo 5', semanas: '9–10', entregable: 'Reprogramar, cancelar y compartir eventos' },
           { ciclo: 'Ciclo 6', semanas: '11–12',entregable: 'Control de acceso QR + notificaciones push' },
-          { ciclo: 'Ciclo 7', semanas: '13–14',entregable: 'Reportes, infraestructura DevOps, operación final' }
+          { ciclo: 'Ciclo 7', semanas: '13–14',entregable: 'Reportes, publicación en internet, operación final' }
         ]
       },
       s3: {
@@ -151,7 +151,7 @@ const METODOLOGIAS = {
         tabla: [
           { ciclo: 'Ciclo 1', semanas: '1–2',  entregable: 'Login + búsqueda básica de eventos + infraestructura' },
           { ciclo: 'Ciclo 2', semanas: '3–4',  entregable: 'Flujo completo de compra, pagos y boletos QR' },
-          { ciclo: 'Ciclo 3', semanas: '5–6',  entregable: 'Creación de eventos — CMS del organizador' },
+          { ciclo: 'Ciclo 3', semanas: '5–6',  entregable: 'Creación de eventos — capacitación del organizador' },
           { ciclo: 'Ciclo 4', semanas: '7–8',  entregable: 'Gestión avanzada de eventos — parte 1' },
           { ciclo: 'Ciclo 5', semanas: '9–10', entregable: 'Gestión avanzada de eventos — parte 2' },
           { ciclo: 'Ciclo 6', semanas: '11–12',entregable: 'Control de acceso QR + notificaciones' },
@@ -162,7 +162,6 @@ const METODOLOGIAS = {
         titulo: 'Cronograma',
         items: [
           '7 ciclos de 2 semanas = 3.5 meses en total',
-          'Velocidad promedio: 63 puntos por ciclo',
           'Revisión en vivo al cierre de cada ciclo',
           'Entrega final: cierre del mes 3.5'
         ]
@@ -221,7 +220,7 @@ const METODOLOGIAS = {
       kpis: [
         { label: 'Costo Total',           valor: 'Q333,593.75', acento: 'orange' },
         { label: 'Duración',              valor: '3.5 meses',   acento: 'purple' },
-        { label: 'Velocidad promedio',    valor: '63 pts/ciclo', acento: 'dark'  },
+        { label: 'Cantidad de ciclos',    valor: '7 ciclos',     acento: 'dark'  },
         { label: 'Costo por ciclo',       valor: 'Q47,656.25',  acento: 'orange' },
         { label: 'Forma de pago',         valor: 'Mensual fijo', acento: 'dark', sub: 'Días 1–5 de cada mes' }
       ],

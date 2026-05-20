@@ -187,7 +187,6 @@ function renderS3(data) {
       '<div class="anim-4">' + bullets + '</div>' +
       '<div class="anim-5" style="margin-top:32px;">' + timeline + '</div>' +
     '</div>' +
-      '<div class="split-img-panel anim-fade">' +
       '<img src="assets/img/presentacionClinica (4).png" class="split-img-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="">' +
       '<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(26,23,69,0.45) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>' +
     '</div>' +
