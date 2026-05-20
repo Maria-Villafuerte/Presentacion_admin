@@ -24,7 +24,7 @@ const METODOLOGIAS = {
           { ciclo: 'Ciclo 3', semanas: '5–6',  entregable: 'Creación de eventos, tipos de entrada, carga de imágenes' },
           { ciclo: 'Ciclo 4', semanas: '7–8',  entregable: 'Edición, duplicado y borradores de eventos' },
           { ciclo: 'Ciclo 5', semanas: '9–10', entregable: 'Reprogramar, cancelar y compartir eventos' },
-          { ciclo: 'Ciclo 6', semanas: '11–12',entregable: 'Control de acceso QR + notificaciones push' },
+          { ciclo: 'Ciclo 6', semanas: '11–12',entregable: 'Control de acceso QR + notificaciones' },
           { ciclo: 'Ciclo 7', semanas: '13–14',entregable: 'Reportes, publicación en internet, operación final' }
         ]
       },
@@ -121,7 +121,7 @@ const METODOLOGIAS = {
       ],
       slas: [
         { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',   color: 'orange' },
-        { label: 'Uptime en producción',          target: 99.5, unit: '%',   color: 'orange' },
+        { label: 'Integridad de la solución',          target: 99.5, unit: '%',   color: 'orange' },
         { label: 'Módulos entregados',            target: 100,  unit: '% (8/8)', color: 'purple' }
       ],
       ciclos: [
@@ -157,7 +157,7 @@ const METODOLOGIAS = {
           { ciclo: 'Sprint 6',  semanas: '11–12', entregable: 'Editar, duplicar, borradores, reprogramar y cancelar' },
           { ciclo: 'Sprint 7',  semanas: '13–14', entregable: 'Comentarios, calificaciones y links para compartir' },
           { ciclo: 'Sprint 8',  semanas: '15–16', entregable: 'Validación de entradas QR y check-in' },
-          { ciclo: 'Sprint 9',  semanas: '17–18', entregable: 'Notificaciones push y en plataforma' },
+          { ciclo: 'Sprint 9',  semanas: '17–18', entregable: 'Notificaciones y en plataforma' },
           { ciclo: 'Sprint 10', semanas: '19–20', entregable: 'Dashboard, métricas, reportes y exportaciones' },
           { ciclo: 'Sprint 11', semanas: '21–22', entregable: 'Monitoreo, bitácoras, alertas y soporte técnico' }
         ]
@@ -207,8 +207,8 @@ const METODOLOGIAS = {
           items: [
             { label: 'Entregables por ciclo',    valor: 'Demo funcional en vivo al cierre de cada uno de los 12 ciclos' },
             { label: 'Variación máxima de costo', valor: '5% sobre el presupuesto aprobado' },
-            { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa por FEL/SAT' },
-            { label: 'Uptime en producción',      valor: '≥ 99.5% validado con pruebas de carga antes de la entrega final' },
+            { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa por Facturas Electronicas' },
+            { label: 'Integridad de la solución',      valor: '≥ 99.5% validado con pruebas de carga antes de la entrega final' },
             { label: 'Al cierre del proyecto',    valor: 'Código fuente + documentación + credenciales + 2 sesiones de traspaso' }
           ]
 
@@ -226,17 +226,18 @@ tabla: [
       },
       s9: {
         titulo: 'Indicadores Financieros',
-        nota: 'Basado en flujo mensual proyectado del cliente de Q150,000.00',
+        nota: 'Basado en flujo mensual proyectado del cliente de Q145.000,00',
         indicadores: [
           { nombre: 'ROI',     valor: '33.39%', col: '' },
           { nombre: 'TMAR',    valor: '24%',    col: 'purple' },
+          { nombre: 'ROA',     valor: '74.70%', col: '' },
           { nombre: 'Retorno', valor: '6 Meses', col: '' }
         ],
         resumen: [
-          { label: 'Inversión',          valor: 'Q652.200,00 ' },
-          { label: 'Beneficio Esperado', valor: 'Q870,000.00' },
-          { label: 'Beneficio Neto',     valor: 'Q217,800.00' },
-          { label: 'Flujo Mensual',      valor: 'Q150,000.00' }
+          { label: 'Beneficio Esperado', valor: 'Q855,000.00' },
+          { label: 'Costo equpo desarrollo',      valor: '490,000.00' },
+          { label: 'Otros costos Directos',      valor: 'Q152,000.00' },
+          { label: 'Mitigación y Gestión de Riesgos',      valor: 'Q228,000.00' },
         ]
       }
     },
@@ -261,7 +262,7 @@ tabla: [
       ],
       slas: [
         { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',        color: 'orange' },
-        { label: 'Uptime en producción',          target: 99.5, unit: '%',        color: 'orange' },
+        { label: 'Integridad de la solución',          target: 99.5, unit: '%',        color: 'orange' },
         { label: 'Módulos entregados',            target: 100,  unit: '% (11/11)', color: 'purple' }
       ],
       ciclos: [
@@ -273,7 +274,7 @@ tabla: [
         { id: 'S6',  semanas: 'S11–12', nombre: 'Editar, duplicar, borradores, reprogramar y cancelar', color: '#1D9E75' },
         { id: 'S7',  semanas: 'S13–14', nombre: 'Comentarios, calificaciones y links para compartir', color: '#7F77DD' },
         { id: 'S8',  semanas: 'S15–16', nombre: 'Validación de entradas QR y check-in', color: '#7F77DD' },
-        { id: 'S9',  semanas: 'S17–18', nombre: 'Notificaciones push y en plataforma',  color: '#7F77DD' },
+        { id: 'S9',  semanas: 'S17–18', nombre: 'Notificaciones y en plataforma',  color: '#7F77DD' },
         { id: 'S10', semanas: 'S19–20 ', nombre: 'Dashboard, métricas, reportes y exportaciones', color: '#BA7517' },
         { id: 'S11', semanas: 'S21–22', nombre: 'Monitoreo, bitácoras, alertas y soporte técnico', color: '#BA7517' }
       ],
@@ -303,7 +304,7 @@ tabla: [
           { ciclo: 'Ciclo 3', modulo: 'EP03', entregable: 'Carrito, pagos, FEL, boletos QR únicos' },
           { ciclo: 'Ciclo 4', modulo: 'EP04', entregable: 'Creación/edición de eventos, aforos, borradores' },
           { ciclo: 'Ciclo 5', modulo: 'EP05', entregable: 'Escáner QR, modo sin internet, sincronización' },
-          { ciclo: 'Ciclo 6', modulo: 'EP06–07', entregable: 'Dashboards, reportes, notificaciones push' },
+          { ciclo: 'Ciclo 6', modulo: 'EP06–07', entregable: 'Dashboards, reportes, notificaciones' },
           { ciclo: 'Ciclo 7', modulo: 'EP08', entregable: 'Cloud, auto-scaling, CI/CD, backups' }
         ]
       },
