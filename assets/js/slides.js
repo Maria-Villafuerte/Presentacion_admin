@@ -19,9 +19,9 @@ function renderAllSlides(data) {
   if (!data || data.slides === 'blank') {
     for (var b = 1; b <= TOTAL_SLIDES; b++) html += renderBlank(b);
   } else {
-    html += renderS1(data);
     html += renderSImg1(data);
     html += renderSImg(data);
+    html += renderS1(data);
     html += renderS2b(data);
     html += renderS2(data);
     html += renderS3(data);
