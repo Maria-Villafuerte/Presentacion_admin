@@ -122,7 +122,7 @@ function renderS2(data) {
   var tabla = s.tabla;
 
   /* Emojis representativos por ciclo */
-  var CYCLE_EMOJIS = ['🔐','🛒','🎫','✏️','📡','📱','📊','⚙️'];
+  var CYCLE_EMOJIS = ['🔐','🛒','💳','✏️','🎫','✏️','💬','📲','🔔','📊','🛡️'];
 
   function makeCard(item, i) {
     var col   = colorAlt(i);
@@ -136,7 +136,7 @@ function renderS2(data) {
     '</div>';
   }
 
-  var split = 4;
+  var split = Math.floor(tabla.length / 2);
   var row1 = tabla.slice(0, split).map(function(it, i) { return makeCard(it, i); }).join('');
   var row2 = tabla.slice(split).map(function(it, i)  { return makeCard(it, i + split); }).join('');
 
@@ -174,20 +174,20 @@ function renderS3(data) {
     '</div>';
   }).join('');
 
-  var timeline = meta.tipo === 'kanban'
-    ? buildKanbanTimeline(data.slides.s2.tabla)
-    : buildSprintTimeline();
+  var timelineHtml = meta.tipo === 'kanban'
+    ? '<div class="anim-5" style="margin-top:32px;">' + buildKanbanTimeline(data.slides.s2.tabla) + '</div>'
+    : '';
 
   return '<div class="slide s-split s-split-right">' +
-    /* Panel izquierdo: datos + SVG de MajoV */
+    /* Panel izquierdo: datos */
     '<div class="split-dark">' +
       '<div class="overline anim-1">CRONOGRAMA</div>' +
       '<div class="s3-dur-num anim-2">' + meta.duracion + '</div>' +
       '<div class="s3-dur-unit anim-3">MESES</div>' +
       '<div class="anim-4">' + bullets + '</div>' +
-      '<div class="anim-5" style="margin-top:32px;">' + timeline + '</div>' +
+      timelineHtml +
     '</div>' +
-      '<img src="assets/img/presentacionClinica (4).png" class="split-img-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="">' +
+      '<img src="assets/img/presentacionClinica (9).png" class="split-img-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="">' +
       '<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(26,23,69,0.45) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>' +
     '</div>' +
     '<div class="gradient-strip"></div>' +
@@ -199,7 +199,9 @@ function buildSprintTimeline() {
     { label: 'MES\u00a01', cycles: [{n:1,sem:'1\u20132'},{n:2,sem:'3\u20134'}] },
     { label: 'MES\u00a02', cycles: [{n:3,sem:'5\u20136'},{n:4,sem:'7\u20138'}] },
     { label: 'MES\u00a03', cycles: [{n:5,sem:'9\u201310'},{n:6,sem:'11\u201312'}] },
-    { label: '\u00bd',     cycles: [{n:7,sem:'13\u201314'}], half: true }
+    { label: 'MES\u00a04', cycles: [{n:7,sem:'13\u201314'},{n:8,sem:'15\u201316'}] },
+    { label: 'MES\u00a05', cycles: [{n:9,sem:'17\u201318'},{n:10,sem:'19\u201320'}] },
+    { label: 'MES\u00a06', cycles: [{n:11,sem:'21\u201322'},{n:12,sem:'23\u201324'}], half: true }
   ];
   var html = '<div class="s3-months-row">';
   months.forEach(function(m) {
@@ -209,7 +211,7 @@ function buildSprintTimeline() {
     m.cycles.forEach(function(c, ci) {
       var p = ci % 2 === 1;
       html += '<div class="s3-cycle-block' + (p ? ' purple' : '') + '">';
-      html +=   '<div class="s3-cycle-label' + (p ? ' purple' : '') + '">C' + c.n + '</div>';
+      html +=   '<div class="s3-cycle-label' + (p ? ' purple' : '') + '">S' + c.n + '</div>';
       html +=   '<div class="s3-cycle-sem">Sem.\u00a0' + c.sem + '</div>';
       html += '</div>';
     });
@@ -221,15 +223,18 @@ function buildSprintTimeline() {
 }
 
 function buildKanbanTimeline(tabla) {
-  var html = '<div class="s3-kanban-row">';
+  var html = '<div class="s3-months-row s3-kanban-months">';
   tabla.forEach(function(item, i) {
     var p = i % 2 === 1;
     var label = item.modulo || item.ciclo;
-    var name  = item.entregable.length > 26 ? item.entregable.substring(0,26) + '\u2026' : item.entregable;
-    html += '<div class="s3-kan-block' + (p ? ' purple' : '') + '">';
-    html +=   '<div class="s3-kan-month">MES\u00a0' + (i + 1) + '</div>';
-    html +=   '<div class="s3-kan-ep' + (p ? ' purple' : '') + '">' + label + '</div>';
-    html +=   '<div class="s3-kan-name">' + name + '</div>';
+    html += '<div class="s3-month-group">';
+    html +=   '<div class="s3-month-label s3-kan-label">MES\u00a0' + (i + 1) + '</div>';
+    html +=   '<div class="s3-cycles-in-month">';
+    html +=     '<div class="s3-kan-block' + (p ? ' purple' : '') + '">';
+    html +=       '<div class="s3-kan-ep' + (p ? ' purple' : '') + '">' + label + '</div>';
+    html +=       '<div class="s3-kan-name">' + item.entregable + '</div>';
+    html +=     '</div>';
+    html +=   '</div>';
     html += '</div>';
   });
   html += '</div>';
@@ -381,7 +386,7 @@ function renderS7(data) {
 ════════════════════════════════════════ */
 function renderS8(data) {
   var s = data.slides.s8;
-  var nums = ['01', '02', '03', '04'];
+  var nums = ['01', '02', '03', '04','05','06','07','08'];
   var numColors = ['orange', 'purple', 'orange', 'purple'];
 
   var items = s.tabla.map(function(b, i) {
@@ -416,21 +421,34 @@ function renderS8(data) {
 ════════════════════════════════════════ */
 function renderS9(data) {
   var s = data.slides.s9;
-  var indicadores = [
-    { nombre: 'ROI',              col: '',       icon: 'Q' },
-    { nombre: 'ROA',              col: '',       icon: '%' },
-    { nombre: 'Meses de Retorno', col: 'purple', icon: 'M' }
+  var inds = s.indicadores || [
+    { nombre: 'ROI',     valor: null, col: '' },
+    { nombre: 'TMAR',    valor: null, col: 'purple' },
+    { nombre: 'Retorno', valor: null, col: '' }
   ];
 
-  var cards = indicadores.map(function(ind) {
+  var cards = inds.map(function(ind) {
+    var body = ind.valor
+      ? '<div class="indicator-value-v2">' + ind.valor + '</div>'
+      : '<div class="indicator-ring' + (ind.col ? ' ' + ind.col : '') + '"><div class="indicator-ring-inner">?</div></div>' +
+        '<div class="indicator-pending-v2">Por definir</div>';
     return '<div class="indicator-card-v2">' +
-      '<div class="indicator-name-v2 ' + ind.col + '">' + ind.nombre + '</div>' +
-      '<div class="indicator-ring' + (ind.col ? ' ' + ind.col : '') + '">' +
-        '<div class="indicator-ring-inner">' + ind.icon + '</div>' +
-      '</div>' +
-      '<div class="indicator-pending-v2">Por definir</div>' +
+      '<div class="indicator-name-v2' + (ind.col ? ' ' + ind.col : '') + '">' + ind.nombre + '</div>' +
+      body +
     '</div>';
   }).join('');
+
+  var resumenHTML = '';
+  if (s.resumen) {
+    resumenHTML = '<div class="s9-resumen anim-5">' +
+      s.resumen.map(function(r) {
+        return '<div class="s9-resumen-item">' +
+          '<span class="s9-resumen-label">' + r.label + '</span>' +
+          '<span class="s9-resumen-valor">' + r.valor + '</span>' +
+        '</div>';
+      }).join('') +
+    '</div>';
+  }
 
   return '<div class="slide s-dark">' +
     '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(107,82,232,.18) 0%,transparent 70%);pointer-events:none;"></div>' +
@@ -438,7 +456,8 @@ function renderS9(data) {
       '<div class="overline anim-1">RETORNO DE INVERSI\u00d3N</div>' +
       '<div class="slide-title white anim-2">' + s.titulo + '</div>' +
       '<div class="indicator-cards anim-3">' + cards + '</div>' +
-      '<div class="s9-note anim-4">' + s.nota + '</div>' +
+      resumenHTML +
+      (s.nota ? '<div class="s9-note anim-4">' + s.nota + '</div>' : '') +
     '</div>' +
     '<div class="gradient-strip"></div>' +
   '</div>';

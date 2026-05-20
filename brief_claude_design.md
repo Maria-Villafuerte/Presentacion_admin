@@ -48,6 +48,7 @@ FINAL_EVENTURA/
 ```
 
 **Combinaciones de contraste aprobadas:**
+
 - Texto blanco sobre naranja `#FF4500` ✓
 - Texto blanco sobre oscuro `#1A1745` ✓
 - Texto blanco sobre morado `#6B52E8` ✓
@@ -59,21 +60,23 @@ FINAL_EVENTURA/
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 ```
 
-| Nivel   | Tamaño | Peso | Uso                               |
-|---------|--------|------|-----------------------------------|
-| H1      | 72 px  | 900  | Título principal, portadas        |
-| H2      | 52 px  | 700  | Título secundario                 |
-| H3      | 40 px  | 600  | Subtítulo de sección              |
-| Body    | 34 px  | 400  | Texto de cuerpo                   |
-| Small   | 28 px  | 500  | Texto secundario, etiquetas       |
-| Caption | 24 px  | 400  | Notas, metadatos (uppercase)      |
+| Nivel   | Tamaño | Peso | Uso                          |
+| ------- | ------- | ---- | ---------------------------- |
+| H1      | 72 px   | 900  | Título principal, portadas  |
+| H2      | 52 px   | 700  | Título secundario           |
+| H3      | 40 px   | 600  | Subtítulo de sección       |
+| Body    | 34 px   | 400  | Texto de cuerpo              |
+| Small   | 28 px   | 500  | Texto secundario, etiquetas  |
+| Caption | 24 px   | 400  | Notas, metadatos (uppercase) |
 
 ### Íconos
+
 Estilo **outline redondeado**, trazo 2 px, sobre fondos tintados (`#FFE8DE` o `#EDEAFF`). Nunca sobre fondos de bajo contraste.
 
 ### Plantillas de slide definidas en Brand Book
 
 **Portada (Slide oscuro):**
+
 - Fondo `#1A1745`
 - Círculos decorativos naranja y morado al 6–14% de opacidad en segundo plano
 - Tira degradada inferior: Naranja `#FF4500` → Morado `#6B52E8`, 6 px de alto
@@ -81,6 +84,7 @@ Estilo **outline redondeado**, trazo 2 px, sobre fondos tintados (`#FFE8DE` o `#
 - Subtítulo en naranja, uppercase, espaciado amplio
 
 **Diapositiva de contenido (Slide claro):**
+
 - Panel izquierdo oscuro `#1A1745` con logo (ancla visual)
 - Fondo crema `#F5F1EC`
 - Overline en naranja (uppercase, peso 700)
@@ -89,6 +93,7 @@ Estilo **outline redondeado**, trazo 2 px, sobre fondos tintados (`#FFE8DE` o `#
 - Numeración alternada naranja/morado
 
 **Diapositiva de datos (Slide oscuro con cifras):**
+
 - Fondo `#1A1745`
 - Cifras clave en Outfit Black, color naranja o morado claro
 - Tarjetas semitransparentes: blanco al 6% u opacidad morado al 22%
@@ -135,6 +140,7 @@ eventura-presentacion/
 ```
 
 **Logo dropdown (aparece DEBAJO del logo al hacer clic):**
+
 ```
               ┌───────────────┐
               │  ● PMI/Scrum  │  ← punto naranja = metodología activa
@@ -150,6 +156,7 @@ eventura-presentacion/
 ## Comportamiento de Navegación
 
 ### Reglas absolutas
+
 1. **Los nombres de metodologías JAMÁS aparecen en el contenido principal** — solo en el menú dropdown
 2. **Las metodologías NUNCA se comparan** entre sí — cada una muestra solo sus propios datos
 3. El logo (40–50 px) en esquina superior derecha es el ÚNICO toggle del menú
@@ -158,6 +165,7 @@ eventura-presentacion/
 6. Los dos tabs (Presentación / Dashboard) son independientes del menú
 
 ### Flujo de interacción
+
 1. Clic en logo → dropdown aparece con animación suave hacia abajo
 2. Selección de opción → menú se cierra, contenido cambia
 3. Tab "Presentación" → carrusel de 9 slides
@@ -175,17 +183,17 @@ eventura-presentacion/
 
 ### Estructura de 9 slides (misma para todas las metodologías)
 
-| # | Slide |
-|---|-------|
-| 1 | Intro / ¿Quiénes somos? |
-| 2 | ¿Qué recibirá? |
-| 3 | Cronograma |
-| 4 | Costo |
-| 5 | El Equipo |
-| 6 | Riesgos y Protecciones |
-| 7 | Lo Que Garantizamos |
+| # | Slide                       |
+| - | --------------------------- |
+| 1 | Intro / ¿Quiénes somos?   |
+| 2 | ¿Qué recibirá?           |
+| 3 | Cronograma                  |
+| 4 | Costo                       |
+| 5 | El Equipo                   |
+| 6 | Riesgos y Protecciones      |
+| 7 | Lo Que Garantizamos         |
 | 8 | Beneficios para el Inversor |
-| 9 | Indicadores Financieros |
+| 9 | Indicadores Financieros     |
 
 ---
 

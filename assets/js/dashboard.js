@@ -43,8 +43,8 @@ function renderDashboard(data) {
   var ciclosHTML = dash.ciclos.map(function(c, i) {
     var border = i < dash.ciclos.length - 1 ? 'border-bottom:0.5px solid var(--color-border-tertiary);' : '';
     return '<div style="display:flex;align-items:center;gap:10px;padding:5px 0;' + border + '">' +
-      '<span style="font-size:11px;font-weight:500;color:var(--color-text-tertiary);width:20px;flex-shrink:0;">' + c.id + '</span>' +
-      '<span style="font-size:11px;color:var(--color-text-tertiary);width:34px;flex-shrink:0;">' + c.semanas + '</span>' +
+      '<span style="font-size:11px;font-weight:500;color:var(--color-text-tertiary);width:26px;flex-shrink:0;">' + c.id + '</span>' +
+      '<span style="font-size:11px;color:var(--color-text-tertiary);width:46px;flex-shrink:0;">' + c.semanas + '</span>' +
       '<div style="flex:1;height:6px;border-radius:3px;background:var(--color-border-tertiary);overflow:hidden;">' +
         '<div style="width:100%;height:100%;background:' + c.color + ';border-radius:3px;"></div>' +
       '</div>' +
@@ -83,11 +83,16 @@ function renderDashboard(data) {
       '<div class="chart-card">' +
         '<div class="chart-card-title">Indicadores Financieros</div>' +
         '<div class="fin-cards">' +
-          '<div class="fin-card"><span class="fin-card-label">ROI</span><span class="fin-card-value">\u2014 Por calcular</span></div>' +
-          '<div class="fin-card"><span class="fin-card-label">ROA</span><span class="fin-card-value">\u2014 Por calcular</span></div>' +
-          '<div class="fin-card"><span class="fin-card-label">Meses de Retorno</span><span class="fin-card-value">\u2014 Por calcular</span></div>' +
+          (dash.financieros
+            ? dash.financieros.map(function(f) {
+                return '<div class="fin-card"><span class="fin-card-label">' + f.label + '</span><span class="fin-card-value fin-card-value--live">' + f.valor + '</span></div>';
+              }).join('')
+            : '<div class="fin-card"><span class="fin-card-label">ROI</span><span class="fin-card-value">\u2014 Por calcular</span></div>' +
+              '<div class="fin-card"><span class="fin-card-label">TMAR</span><span class="fin-card-value">\u2014 Por calcular</span></div>' +
+              '<div class="fin-card"><span class="fin-card-label">Retorno</span><span class="fin-card-value">\u2014 Por calcular</span></div>'
+          ) +
         '</div>' +
-        '<div class="fin-note">Valores a definir con el cliente al inicio del proyecto.</div>' +
+        (dash.financieros ? '' : '<div class="fin-note">Valores a definir con el cliente al inicio del proyecto.</div>') +
       '</div>' +
       '<div class="chart-card">' +
         '<div class="chart-card-title">Cronograma de ciclos</div>' +

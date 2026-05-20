@@ -39,17 +39,17 @@ const METODOLOGIAS = {
       s4: {
         titulo: 'Costo',
         tabla: [
-          { concepto: 'Duración',             valor: '3.5 meses' },
-          { concepto: 'Costo mensual',        valor: 'Q95,312.50' },
-          { concepto: 'Total del proyecto',   valor: 'Q333,593.75' },
-          { concepto: 'Margen del proveedor', valor: '36.79%' },
+          { concepto: 'Duración',             valor: '6 meses' },
+          { concepto: 'Costo mensual',        valor: 'Q145,000.00' },
+          { concepto: 'Total del proyecto',   valor: 'Q870,000.00' },
+          { concepto: 'Margen del proveedor', valor: '25%' },
           { concepto: 'Forma de pago',        valor: 'Mensual fijo, días 1–5' },
           { concepto: 'Interés por mora',     valor: '1.5% mensual (>10 días)' }
         ],
-        total: 'Q333,593.75',
-        mensual: 'Q95,312.50',
-        margen: '36.79%',
-        duracion: '3.5 meses',
+        total: 'Q870,000.00',
+        mensual: 'Q145,000.00',
+        margen: '25%',
+        duracion: '6 meses',
         pago: 'Mensual fijo, días 1–5 de cada mes · Mora: 1.5% mensual sobre saldo pendiente (>10 días)'
       },
       s5: {
@@ -140,7 +140,7 @@ const METODOLOGIAS = {
      B — Scrum
   ──────────────────────────────────────────────── */
   B: {
-    meta: { duracion: '3.5', ciclos: 7, tipo: 'sprint' },
+    meta: { duracion: '6', ciclos: 11, tipo: 'sprint' },
     slides: {
       s1: {
         titulo: '¿Quiénes somos?',
@@ -149,29 +149,33 @@ const METODOLOGIAS = {
       s2: {
         titulo: '¿Qué recibirá?',
         tabla: [
-          { ciclo: 'Ciclo 1', semanas: '1–2',  entregable: 'Login + búsqueda básica de eventos + infraestructura' },
-          { ciclo: 'Ciclo 2', semanas: '3–4',  entregable: 'Flujo completo de compra, pagos y boletos QR' },
-          { ciclo: 'Ciclo 3', semanas: '5–6',  entregable: 'Creación de eventos — capacitación del organizador' },
-          { ciclo: 'Ciclo 4', semanas: '7–8',  entregable: 'Gestión avanzada de eventos — parte 1' },
-          { ciclo: 'Ciclo 5', semanas: '9–10', entregable: 'Gestión avanzada de eventos — parte 2' },
-          { ciclo: 'Ciclo 6', semanas: '11–12',entregable: 'Control de acceso QR + notificaciones' },
-          { ciclo: 'Ciclo 7', semanas: '13–14',entregable: 'Reportes + publicación en internet + operación final' }
+          { ciclo: 'Sprint 1',  semanas: '1–2',   entregable: 'Login, registro, control de accesos, listado y búsqueda de eventos' },
+          { ciclo: 'Sprint 2',  semanas: '3–4',   entregable: 'Filtros avanzados, recomendaciones, selección de entradas y carrito' },
+          { ciclo: 'Sprint 3',  semanas: '5–6',   entregable: 'Pago, confirmación, facturación, historial, correos y QR' },
+          { ciclo: 'Sprint 4',  semanas: '7–8',   entregable: 'Creación de eventos — datos básicos' },
+          { ciclo: 'Sprint 5',  semanas: '9–10',  entregable: 'Tipos de entrada, banners, etiquetas y cupones' },
+          { ciclo: 'Sprint 6',  semanas: '11–12', entregable: 'Editar, duplicar, borradores, reprogramar y cancelar' },
+          { ciclo: 'Sprint 7',  semanas: '13–14', entregable: 'Comentarios, calificaciones y links para compartir' },
+          { ciclo: 'Sprint 8',  semanas: '15–16', entregable: 'Validación de entradas QR y check-in' },
+          { ciclo: 'Sprint 9',  semanas: '17–18', entregable: 'Notificaciones push y en plataforma' },
+          { ciclo: 'Sprint 10', semanas: '19–20', entregable: 'Dashboard, métricas, reportes y exportaciones' },
+          { ciclo: 'Sprint 11', semanas: '21–22', entregable: 'Monitoreo, bitácoras, alertas y soporte técnico' }
         ]
       },
       s3: {
         titulo: 'Cronograma',
         items: [
-          '7 ciclos de 2 semanas = 3.5 meses en total',
-          'Revisión en vivo al cierre de cada ciclo',
-          'Entrega final: cierre del mes 3.5'
+          '12 ciclos de 2 semanas = 6 meses en total',
+          'Revisión en vivo al cierre de cada sprint',
+          'Entrega final: cierre del mes 6'
         ]
       },
       s4: {
         titulo: 'Costo',
-        total: 'Q333,593.75',
-        mensual: 'Q95,312.50',
-        margen: '36.79%',
-        duracion: '3.5 meses',
+        total: 'Q870,000.00',
+        mensual: 'Q145,000.00',
+        margen: '25%',
+        duracion: '6   meses',
         pago: 'Mensual fijo, días 1–5 de cada mes · Mora: 1.5% mensual sobre saldo pendiente (>10 días)'
       },
       s5: {
@@ -189,44 +193,64 @@ const METODOLOGIAS = {
       },
       s6: {
         titulo: 'Riesgos y Protecciones',
-        tabla: [
-          { escenario: 'Cambios en pasarela de pagos',  impacto: 'Alto',  proteccion: 'Capa de abstracción + pruebas automáticas desde Ciclo 2' },
-          { escenario: 'Cambios regulatorios FEL/SAT',  impacto: 'Medio', proteccion: 'Monitoreo semanal + buffer en Ciclo 7' },
-          { escenario: 'Rotación del equipo',           impacto: 'Alto',  proteccion: 'Documentación continua + pair programming' },
-          { escenario: 'Picos de tráfico (sold-outs)',  impacto: 'Medio', proteccion: 'Pruebas de carga Ciclo 5 + auto-scaling en nube' }
-        ]
+  tabla: [
+    { escenario: 'Brecha de seguridad en datos',            impacto: 'Alto',  proteccion: 'Protocolos de acceso restringido + revisiones de seguridad periódicas' },
+    { escenario: 'Salida simultánea de 2+ desarrolladores', impacto: 'Alto',  proteccion: 'Conocimiento compartido entre el equipo + procesos de reemplazo definidos' },
+    { escenario: 'Servidor caído durante preventa',         impacto: 'Alto',  proteccion: 'Simulacros de alta demanda previos al lanzamiento + plan de respuesta inmediata' },
+    { escenario: 'Retrasos acumulados entre módulos',       impacto: 'Medio', proteccion: 'Revisión semanal de avance + margen de tiempo reservado por etapa' },
+    { escenario: 'Falla en pasarela de pago',               impacto: 'Bajo',  proteccion: 'Proveedor alternativo de respaldo + alertas ante cualquier interrupción' },
+    { escenario: 'Cliente no disponible para validaciones', impacto: 'Bajo',  proteccion: 'Sesiones agendadas con anticipación + criterios de aprobación definidos por escrito' },
+  ]
       },
       s7: {
         titulo: 'Lo Que Garantizamos',
-        items: [
-          { label: 'Variación máxima de costo',  valor: '5% sobre el presupuesto aprobado' },
-          { label: 'Mora >30 días',              valor: 'permite suspensión del servicio' },
-          { label: 'Al cierre del proyecto',     valor: 'código fuente + documentación + credenciales + 2 sesiones de traspaso' },
-          { label: 'Uptime en producción',       valor: '≥ 99.5% validado antes de la entrega final' }
-        ]
+          items: [
+            { label: 'Entregables por sprint',    valor: 'Demo funcional en vivo al cierre de cada uno de los 12 sprints' },
+            { label: 'Variación máxima de costo', valor: '5% sobre el presupuesto aprobado' },
+            { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa por FEL/SAT' },
+            { label: 'Uptime en producción',      valor: '≥ 99.5% validado con pruebas de carga antes de la entrega final' },
+            { label: 'Al cierre del proyecto',    valor: 'Código fuente + documentación + credenciales + 2 sesiones de traspaso' }
+          ]
+
       },
       s8: {
         titulo: 'Beneficios para el Inversor',
-        tabla: [
-          { beneficio: 'Costo transparente por ciclo',  descripcion: 'Sabe exactamente qué se entrega con cada pago quincenal' },
-          { beneficio: 'Menor riesgo de exposición',    descripcion: '3.5 meses — la mitad del tiempo de ciclos más largos' },
-          { beneficio: 'Margen sostenible',             descripcion: '36.79% garantiza un equipo estable durante todo el proyecto' },
-          { beneficio: 'Propiedad total del producto',  descripcion: 'Código fuente + documentación entregados al cierre' }
-        ]
+tabla: [
+  { beneficio: 'Ahorro en boletos físicos',            descripcion: 'Q20,000 · Eliminación de costos de impresión y distribución' },
+  { beneficio: 'Eficiencia de staff en puerta',        descripcion: 'Q40,000 · Reducción de personal y tiempos de check-in con QR' },
+  { beneficio: 'Mitigación de fraude y falsificación', descripcion: 'Q185,000 · Boletos QR únicos e irrepetibles por transacción' },
+  { beneficio: 'Ahorro administrativo y contable',     descripcion: 'Q350,000 · Reportes y exportaciones automáticas desde el dashboard' },
+  { beneficio: 'Alcance publicitario digital',         descripcion: 'Q260,000 · Visibilidad en plataforma vs. publicidad tradicional' }
+]
+
       },
-      s9: { titulo: 'Indicadores Financieros', nota: 'Valores a calcular con el cliente' }
+      s9: {
+        titulo: 'Indicadores Financieros',
+        nota: 'Basado en flujo mensual proyectado del cliente de Q150,000.00',
+        indicadores: [
+          { nombre: 'ROI',     valor: '33.39%', col: '' },
+          { nombre: 'TMAR',    valor: '24%',    col: 'purple' },
+          { nombre: 'Retorno', valor: '6 Meses', col: '' }
+        ],
+        resumen: [
+          { label: 'Inversión',          valor: 'Q652.200,00 ' },
+          { label: 'Beneficio Esperado', valor: 'Q870,000.00' },
+          { label: 'Beneficio Neto',     valor: 'Q217,800.00' },
+          { label: 'Flujo Mensual',      valor: 'Q150,000.00' }
+        ]
+      }
     },
     dashboard: {
       kpis: [
-        { label: 'Costo Total',           valor: 'Q333,593.75', acento: 'orange' },
-        { label: 'Duración',              valor: '3.5 meses',   acento: 'purple' },
-        { label: 'Cantidad de ciclos',    valor: '7 ciclos',     acento: 'dark'  },
-        { label: 'Costo por ciclo',       valor: 'Q47,656.25',  acento: 'orange' },
+        { label: 'Costo Total',           valor: 'Q870,000.00',  acento: 'orange' },
+        { label: 'Duración',              valor: '6 meses',      acento: 'purple' },
+        { label: 'Cantidad de ciclos',   valor: '12 ciclos',   acento: 'dark'   },
+        { label: 'Costo mensual',      valor: 'Q145,000.00',   acento: 'orange' },
         { label: 'Forma de pago',         valor: 'Mensual fijo', acento: 'dark', sub: 'Días 1–5 de cada mes' }
       ],
-      ciclosCosto: 47656.25,
-      totalCiclos: 7,
-      labelCiclos: ['C1','C2','C3','C4','C5','C6','C7'],
+      ciclosCosto: 145000.00,
+      totalCiclos: 12,
+      labelCiclos: ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11'],
       equipo: [
         { rol: 'Gestión (PO + SM)',   cant: 2, color: '#FF4500' },
         { rol: 'Diseño (UI/UX)',      cant: 1, color: '#FF6B35' },
@@ -236,18 +260,27 @@ const METODOLOGIAS = {
         { rol: 'Calidad (QA)',        cant: 1, color: '#6B6B8A' }
       ],
       slas: [
-        { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',   color: 'orange' },
-        { label: 'Uptime en producción',          target: 99.5, unit: '%',   color: 'orange' },
-        { label: 'Módulos entregados',            target: 100,  unit: '% (8/8)', color: 'purple' }
+        { label: 'Dentro del presupuesto (±5%)', target: 95,   unit: '%',        color: 'orange' },
+        { label: 'Uptime en producción',          target: 99.5, unit: '%',        color: 'orange' },
+        { label: 'Módulos entregados',            target: 100,  unit: '% (11/11)', color: 'purple' }
       ],
       ciclos: [
-        { id: 'C1', semanas: 'S1–2',   nombre: 'Login + búsqueda básica',          color: '#378ADD' },
-        { id: 'C2', semanas: 'S3–4',   nombre: 'Compra, pagos y boletos QR',       color: '#378ADD' },
-        { id: 'C3', semanas: 'S5–6',   nombre: 'Creación de eventos — CMS',        color: '#1D9E75' },
-        { id: 'C4', semanas: 'S7–8',   nombre: 'Gestión avanzada — parte 1',       color: '#1D9E75' },
-        { id: 'C5', semanas: 'S9–10',  nombre: 'Gestión avanzada — parte 2',       color: '#7F77DD' },
-        { id: 'C6', semanas: 'S11–12', nombre: 'Control QR + notificaciones',      color: '#7F77DD' },
-        { id: 'C7', semanas: 'S13–14', nombre: 'Reportes + publicación + DevOps',  color: '#BA7517' }
+        { id: 'S1',  semanas: 'S1–2',   nombre: 'Login, registro, control de accesos, listado y búsqueda de eventos', color: '#378ADD' },
+        { id: 'S2',  semanas: 'S3–4',   nombre: 'Filtros avanzados, recomendaciones, selección de entradas y carrito', color: '#378ADD' },
+        { id: 'S3',  semanas: 'S5–6',   nombre: 'Pago, confirmación, facturación, historial, correos y QR', color: '#378ADD' },
+        { id: 'S4',  semanas: 'S7–8',   nombre: 'Creación de eventos — datos básicos',  color: '#1D9E75' },
+        { id: 'S5',  semanas: 'S9–10',  nombre: 'Tipos de entrada, banners, etiquetas y cupones', color: '#1D9E75' },
+        { id: 'S6',  semanas: 'S11–12', nombre: 'Editar, duplicar, borradores, reprogramar y cancelar', color: '#1D9E75' },
+        { id: 'S7',  semanas: 'S13–14', nombre: 'Comentarios, calificaciones y links para compartir', color: '#7F77DD' },
+        { id: 'S8',  semanas: 'S15–16', nombre: 'Validación de entradas QR y check-in', color: '#7F77DD' },
+        { id: 'S9',  semanas: 'S17–18', nombre: 'Notificaciones push y en plataforma',  color: '#7F77DD' },
+        { id: 'S10', semanas: 'S19–20 ', nombre: 'Dashboard, métricas, reportes y exportaciones', color: '#BA7517' },
+        { id: 'S11', semanas: 'S21–22', nombre: 'Monitoreo, bitácoras, alertas y soporte técnico', color: '#BA7517' }
+      ],
+      financieros: [
+        { label: 'ROI',              valor: '33.39%' },
+        { label: 'TMAR',             valor: '24%' },
+        { label: 'Retorno',          valor: '6 meses' }
       ]
     }
   },
