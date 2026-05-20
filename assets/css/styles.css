@@ -1336,7 +1336,7 @@ img { display: block; }
   color: var(--ev-purple);
 }
 .cycle-entry-v2 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
   color: var(--ev-dark);
   line-height: 1.35;

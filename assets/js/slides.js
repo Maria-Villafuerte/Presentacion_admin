@@ -6,7 +6,7 @@
 ══════════════════════════════════════════════════════════════ */
 
 var currentSlide = 0;
-var TOTAL_SLIDES = 9;
+var TOTAL_SLIDES = 11;
 
 /* ════════════════════════════════════════
    RENDER PRINCIPAL
@@ -20,6 +20,8 @@ function renderAllSlides(data) {
     for (var b = 1; b <= TOTAL_SLIDES; b++) html += renderBlank(b);
   } else {
     html += renderS1(data);
+    html += renderSImg(data);
+    html += renderS2b(data);
     html += renderS2(data);
     html += renderS3(data);
     html += renderS4(data);
@@ -112,6 +114,64 @@ function renderS1(data) {
     '<div class="gradient-strip"></div>' +
   '</div>';
 }
+
+/* ════════════════════════════════════════
+   SLIDE IMG — Imagen full-bleed
+   Solo imagen, sin texto
+════════════════════════════════════════ */
+function renderSImg(data) {
+  return '<div class="slide s-cover">' +
+    '<img src="assets/img/Eventura.png" class="slide-bg-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Eventura">' +
+    '<div class="gradient-strip"></div>' +
+  '</div>';
+}
+
+/* ════════════════════════════════════════
+   SLIDE 2b — ¿Qué recibirá? (primeras 7 tarjetas)
+   Copia de S2 limitada a 7 items
+════════════════════════════════════════ */
+function renderS2b(data) {
+  var MODULOS = [
+    { emoji: '🔐', titulo: 'Gestión de cuentas y acceso' },
+    { emoji: '🔍', titulo: 'Descubrimiento de eventos' },
+    { emoji: '🎫', titulo: 'Compra de boletos' },
+    { emoji: '🗓️', titulo: 'Gestión de eventos (organizador)' },
+    { emoji: '📲', titulo: 'Control de acceso en puerta' },
+    { emoji: '📊', titulo: 'Panel de administración y reportes' },
+    { emoji: '🔔', titulo: 'Notificaciones y comunicación' }
+  ];
+
+  function makeCard(mod, i) {
+    var col = colorAlt(i);
+    return '<div class="cycle-card-v2 ' + col + '" style="justify-content:center;gap:14px;">' +
+      '<div class="cycle-emoji-wrap ' + col + '">' + mod.emoji + '</div>' +
+      '<div class="cycle-num-badge ' + col + '">Módulo ' + (i + 1) + '</div>' +
+      '<div class="cycle-entry-v2" style="flex:none;display:flex;align-items:center;justify-content:center;">' + mod.titulo + '</div>' +
+    '</div>';
+  }
+
+  var row1 = MODULOS.slice(0, 4).map(function(m, i) { return makeCard(m, i); }).join('');
+  var row2 = MODULOS.slice(4).map(function(m, i)    { return makeCard(m, i + 4); }).join('');
+
+  var grid = '<div class="cycle-2rows anim-3">' +
+    '<div class="cycle-inner-row">' + row1 + '</div>' +
+    '<div class="cycle-inner-row">' + row2 + '</div>' +
+  '</div>';
+
+  return '<div class="slide s-light">' +
+    '<div class="left-panel">' +
+      '<img src="assets/img/logo.png" class="panel-logo" alt="Eventura">' +
+      '<div class="panel-line"></div>' +
+    '</div>' +
+    '<div class="slide-content">' +
+      '<div class="overline anim-1">PLATAFORMA</div>' +
+      '<div class="slide-title anim-2">Módulos del sistema</div>' +
+      grid +
+    '</div>' +
+    '<div class="gradient-strip"></div>' +
+  '</div>';
+}
+
 
 /* ════════════════════════════════════════
    SLIDE 2 — ¿Qué recibirá?
@@ -468,7 +528,8 @@ function renderS9(data) {
 ════════════════════════════════════════ */
 function renderBlank(num) {
   var titles = [
-    '\u00bfQui\u00e9nes somos?', '\u00bfQu\u00e9 recibir\u00e1?', 'Cronograma',
+    '\u00bfQui\u00e9nes somos?', 'Imagen', '\u00bfQu\u00e9 recibir\u00e1? (7 tarjetas)',
+    '\u00bfQu\u00e9 recibir\u00e1?', 'Cronograma',
     'Costo', 'El Equipo', 'Riesgos', 'Garant\u00edas',
     'Beneficios', 'Indicadores'
   ];
