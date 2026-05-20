@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventura — Propuesta Comercial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ════════════════ TOPBAR ════════════════ -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-brand">
+      <img src="assets/img/logo.png" alt="Eventura" class="topbar-brand-logo">
+      <span class="topbar-brand-name">eventura</span>
+    </div>
+    <div class="topbar-tabs">
+      <button class="tab-btn active" data-view="presentation">Presentación</button>
+      <button class="tab-btn" data-view="dashboard">Dashboard</button>
+    </div>
+    <div class="topbar-actions">
+      <button class="fullscreen-btn" id="fullscreenBtn" title="Pantalla completa">
+        <svg id="fsIconExpand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+        <svg id="fsIconCollapse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+        </svg>
+        <span>Presentar</span>
+      </button>
+    </div>
+    <div class="topbar-logo-area">
+      <button class="logo-btn" id="logoBtn" title="Cambiar metodología">
+        <img src="assets/img/logo.png" alt="Eventura">
+      </button>
+      <div class="method-menu" id="methodMenu">
+        <div class="method-menu-inner">
+          <button class="method-item active" data-method="A">
+            <span class="method-dot"></span>
+            <span>PMI / Scrum</span>
+          </button>
+          <button class="method-item" data-method="B">
+            <span class="method-dot"></span>
+            <span>Scrum</span>
+          </button>
+          <button class="method-item" data-method="C">
+            <span class="method-dot"></span>
+            <span>Kanban</span>
+          </button>
+          <button class="method-item" data-method="D">
+            <span class="method-dot"></span>
+            <span>Scrumban</span>
+          </button>
+          <button class="method-item" data-method="E">
+            <span class="method-dot"></span>
+            <span>XP</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════ MAIN ════════════════ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- PRESENTATION VIEW -->
+    <div class="view active" id="view-presentation">
+      <div class="slide-stage" id="slideStage">
+        <div class="slide-canvas" id="slideCanvas">
+          <div class="slides-track" id="slidesTrack"></div>
+        </div>
+      </div>
+      <button class="nav-arrow prev" id="prevBtn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-arrow next" id="nextBtn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <div class="slide-dots-bar" id="slideDots"></div>
+    </div>
+
+    <!-- DASHBOARD VIEW -->
+    <div class="view" id="view-dashboard">
+      <div class="dashboard-scroll">
+        <div class="dashboard-container" id="dashboardContainer"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(function(){});
+        document.getElementById('fsIconExpand').style.display = 'none';
+        document.getElementById('fsIconCollapse').style.display = 'block';
+      } else {
+        document.exitFullscreen();
+        document.getElementById('fsIconExpand').style.display = 'block';
+        document.getElementById('fsIconCollapse').style.display = 'none';
+      }
+    }
+    document.addEventListener('fullscreenchange', function() {
+      var isFS = !!document.fullscreenElement;
+      document.getElementById('fsIconExpand').style.display  = isFS ? 'none'  : 'block';
+      document.getElementById('fsIconCollapse').style.display = isFS ? 'block' : 'none';
+    });
+    document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
+  </script>
+  <script src="image-slot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/slides.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
