@@ -326,10 +326,6 @@ function renderS4(data) {
           '<div class="glass-kpi-value orange">' + s.mensual + '</div>' +
         '</div>' +
         '<div class="glass-kpi">' +
-          '<div class="glass-kpi-label">Margen del proveedor</div>' +
-          '<div class="glass-kpi-value purple">' + s.margen + '</div>' +
-        '</div>' +
-        '<div class="glass-kpi">' +
           '<div class="glass-kpi-label">Duraci\u00f3n contractual</div>' +
           '<div class="glass-kpi-value">' + s.duracion + '</div>' +
         '</div>' +

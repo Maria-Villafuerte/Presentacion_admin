@@ -79,18 +79,18 @@ const METODOLOGIAS = {
       s7: {
         titulo: 'Lo Que Garantizamos',
         items: [
-          { label: 'MVP completo',           valor: 'entregado dentro de 3.5 meses' },
+          { label: 'Poducto Mínimo Viable completo',           valor: 'entregado dentro de 6 meses' },
           { label: 'Variación de costo',     valor: 'máximo 5% del presupuesto aprobado' },
           { label: 'Módulos entregados',     valor: '8 módulos validados al 100%' },
           { label: 'Control de acceso',      valor: 'funcional sin conexión a internet' },
-          { label: 'Uptime en producción',   valor: '≥ 99.5% validado en pruebas de carga' }
+          { label: 'Disponibilidad en producción',   valor: '≥ 99.5% validado en pruebas de carga' }
         ]
       },
       s8: {
         titulo: 'Beneficios para el Inversor',
         tabla: [
-          { beneficio: 'Tiempo al mercado más rápido',  descripcion: 'MVP listo en 3.5 meses — ingresos desde el mes 4' },
-          { beneficio: 'Visibilidad quincenal',          descripcion: 'Sprint Reviews cada 2 semanas con entregables reales' },
+          { beneficio: 'Tiempo al mercado más rápido',  descripcion: 'Producto Mínimo Viable listo en 3.5 meses — ingresos desde el mes 4' },
+          { beneficio: 'Visibilidad quincenal',          descripcion: 'Review de los ciclos cada 2 semanas con entregables reales' },
           { beneficio: 'Riesgo financiero controlado',   descripcion: 'Pagos mensuales fijos, sin sorpresas de presupuesto' },
           { beneficio: 'Propiedad total del producto',   descripcion: 'Código fuente + documentación entregados al cierre' }
         ]
@@ -166,7 +166,7 @@ const METODOLOGIAS = {
         titulo: 'Cronograma',
         items: [
           '12 ciclos de 2 semanas = 6 meses en total',
-          'Revisión en vivo al cierre de cada sprint',
+          'Revisión en vivo al cierre de cada ciclo',
           'Entrega final: cierre del mes 6'
         ]
       },
@@ -205,7 +205,7 @@ const METODOLOGIAS = {
       s7: {
         titulo: 'Lo Que Garantizamos',
           items: [
-            { label: 'Entregables por sprint',    valor: 'Demo funcional en vivo al cierre de cada uno de los 12 sprints' },
+            { label: 'Entregables por ciclo',    valor: 'Demo funcional en vivo al cierre de cada uno de los 12 ciclos' },
             { label: 'Variación máxima de costo', valor: '5% sobre el presupuesto aprobado' },
             { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa por FEL/SAT' },
             { label: 'Uptime en producción',      valor: '≥ 99.5% validado con pruebas de carga antes de la entrega final' },
