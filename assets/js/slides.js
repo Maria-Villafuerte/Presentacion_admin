@@ -6,7 +6,7 @@
 ══════════════════════════════════════════════════════════════ */
 
 var currentSlide = 0;
-var TOTAL_SLIDES = 11;
+var TOTAL_SLIDES = 12;
 
 /* ════════════════════════════════════════
    RENDER PRINCIPAL
@@ -20,6 +20,7 @@ function renderAllSlides(data) {
     for (var b = 1; b <= TOTAL_SLIDES; b++) html += renderBlank(b);
   } else {
     html += renderS1(data);
+    html += renderSImg1(data);
     html += renderSImg(data);
     html += renderS2b(data);
     html += renderS2(data);
@@ -111,6 +112,16 @@ function renderS1(data) {
     '</div>' +
     /* Ticket decorativo — derecha, 30° de inclinación */
     '<img src="assets/img/ticket.png" class="s1-ticket anim-fade" alt="Eventura Ticket">' +
+    '<div class="gradient-strip"></div>' +
+  '</div>';
+}
+
+/* ════════════════════════════════════════
+   SLIDE IMG 1 — Imagen full-bleed (Eventura 1)
+════════════════════════════════════════ */
+function renderSImg1(data) {
+  return '<div class="slide s-cover">' +
+    '<img src="assets/img/Eventura (1).png" class="slide-bg-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Eventura">' +
     '<div class="gradient-strip"></div>' +
   '</div>';
 }
@@ -524,7 +535,7 @@ function renderS9(data) {
 ════════════════════════════════════════ */
 function renderBlank(num) {
   var titles = [
-    '\u00bfQui\u00e9nes somos?', 'Imagen', '\u00bfQu\u00e9 recibir\u00e1? (7 tarjetas)',
+    '\u00bfQui\u00e9nes somos?', 'Imagen 1', 'Imagen 2', '\u00bfQu\u00e9 recibir\u00e1? (7 tarjetas)',
     '\u00bfQu\u00e9 recibir\u00e1?', 'Cronograma',
     'Costo', 'El Equipo', 'Riesgos', 'Garant\u00edas',
     'Beneficios', 'Indicadores'
