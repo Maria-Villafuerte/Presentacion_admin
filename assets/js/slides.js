@@ -483,6 +483,44 @@ function renderS8(data) {
 }
 
 /* ════════════════════════════════════════
+   SLIDE 9 — helper: contenido vista cliente
+════════════════════════════════════════ */
+function renderS9ClienteInner(s) {
+  var inds = s.clienteIndicadores || s.indicadores || [];
+  var cards = inds.map(function(ind) {
+    var body = ind.valor
+      ? '<div class="indicator-value-v2">' + ind.valor + '</div>'
+      : '<div class="indicator-ring' + (ind.col ? ' ' + ind.col : '') + '"><div class="indicator-ring-inner">?</div></div>' +
+        '<div class="indicator-pending-v2">Por definir</div>';
+    return '<div class="indicator-card-v2">' +
+      '<div class="indicator-name-v2' + (ind.col ? ' ' + ind.col : '') + '">' + ind.nombre + '</div>' +
+      body +
+    '</div>';
+  }).join('');
+
+  var resumen = s.clienteResumen || [];
+  var resumenHTML = resumen.length
+    ? '<div class="s9-resumen anim-5">' +
+        resumen.map(function(r) {
+          return '<div class="s9-resumen-item">' +
+            '<span class="s9-resumen-label">' + r.label + '</span>' +
+            '<span class="s9-resumen-valor">' + r.valor + '</span>' +
+          '</div>';
+        }).join('') +
+      '</div>'
+    : '';
+
+  return '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(107,82,232,.18) 0%,transparent 70%);pointer-events:none;"></div>' +
+    '<div class="s9-layout">' +
+      '<div class="overline anim-1">RETORNO DE INVERSIÓN</div>' +
+      '<div class="slide-title white anim-2">' + s.titulo + '</div>' +
+      '<div class="indicator-cards anim-3">' + cards + '</div>' +
+      resumenHTML +
+      (s.nota ? '<div class="s9-note anim-4">' + s.nota + '</div>' : '') +
+    '</div>';
+}
+
+/* ════════════════════════════════════════
    SLIDE 9 — Indicadores Financieros
    Placeholders premium estilo dashboard
 ════════════════════════════════════════ */
@@ -518,17 +556,41 @@ function renderS9(data) {
   }
 
   return '<div class="slide s-dark">' +
-    '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(107,82,232,.18) 0%,transparent 70%);pointer-events:none;"></div>' +
-    '<div class="s9-layout">' +
-      '<div class="overline anim-1">RETORNO DE INVERSI\u00d3N</div>' +
-      '<div class="slide-title white anim-2">' + s.titulo + '</div>' +
-      '<div class="indicator-cards anim-3">' + cards + '</div>' +
-      resumenHTML +
-      (s.nota ? '<div class="s9-note anim-4">' + s.nota + '</div>' : '') +
+    /* Vista normal \u2014 indicadores (oculta por defecto) */
+    '<div class="s9-normal-view hidden">' +
+      '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 110%,rgba(107,82,232,.18) 0%,transparent 70%);pointer-events:none;"></div>' +
+      '<div class="s9-layout">' +
+        '<div class="overline anim-1">RETORNO DE INVERSI\u00d3N</div>' +
+        '<div class="slide-title white anim-2">' + s.titulo + '</div>' +
+        '<div class="indicator-cards anim-3">' + cards + '</div>' +
+        resumenHTML +
+        (s.nota ? '<div class="s9-note anim-4">' + s.nota + '</div>' : '') +
+      '</div>' +
     '</div>' +
+    /* Vista cliente \u2014 mismo layout, datos simplificados (visible por defecto) */
+    '<div class="s9-client-view visible">' +
+      renderS9ClienteInner(s) +
+    '</div>' +
+    /* Bot\u00f3n toggle */
+    '<button class="s9-toggle-btn" onclick="toggleS9View(this)" title="Cambiar vista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="3" width="9" height="9" rx="1.5"/><rect x="13" y="3" width="9" height="9" rx="1.5"/><rect x="2" y="14" width="9" height="9" rx="1.5"/><rect x="13" y="14" width="9" height="9" rx="1.5"/></svg></button>' +
     '<div class="gradient-strip"></div>' +
   '</div>';
 }
+
+function toggleS9View(btn) {
+  var slide = btn.closest('.slide');
+  var normal = slide.querySelector('.s9-normal-view');
+  var client = slide.querySelector('.s9-client-view');
+  var showingClient = client.classList.contains('visible');
+  if (showingClient) {
+    client.classList.remove('visible');
+    normal.classList.remove('hidden');
+  } else {
+    normal.classList.add('hidden');
+    client.classList.add('visible');
+  }
+}
+
 
 /* ════════════════════════════════════════
    SLIDE — XP / Próximamente

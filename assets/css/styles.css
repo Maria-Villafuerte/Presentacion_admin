@@ -875,6 +875,48 @@ img { display: block; }
 }
 
 /* ════════════════════════════════════════
+   S9 — Toggle vistas normal / cliente
+════════════════════════════════════════ */
+.s9-normal-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.s9-normal-view.hidden { display: none; }
+
+.s9-client-view {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.s9-client-view.visible {
+  display: block;
+}
+
+.s9-toggle-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  z-index: 10;
+  background: transparent;
+  color: rgba(255,255,255,0.18);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+}
+.s9-toggle-btn:hover {
+  color: rgba(255,255,255,0.55);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* ════════════════════════════════════════
    SLIDE — XP Próximamente
 ════════════════════════════════════════ */
 .s-blank-center {
@@ -918,6 +960,7 @@ img { display: block; }
   height: 50px;
   border-radius: 50%;
   background: rgba(26,23,69,0.72);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: var(--ev-white);
   display: flex;
@@ -1272,8 +1315,8 @@ img { display: block; }
 ════════════════════════════════════════ */
 .glass-card {
   background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 28px 32px;
@@ -1373,8 +1416,8 @@ img { display: block; }
 }
 .glass-kpi {
   background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 16px;
   padding: 24px 32px;

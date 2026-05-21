@@ -216,28 +216,37 @@ const METODOLOGIAS = {
       s8: {
         titulo: 'Beneficios para el Inversor',
 tabla: [
-  { beneficio: 'Ahorro en boletos físicos',            descripcion: 'Q20,000 · Eliminación de costos de impresión y distribución' },
-  { beneficio: 'Eficiencia de staff en puerta',        descripcion: 'Q40,000 · Reducción de personal y tiempos de check-in con QR' },
-  { beneficio: 'Mitigación de fraude y falsificación', descripcion: 'Q185,000 · Boletos QR únicos e irrepetibles por transacción' },
-  { beneficio: 'Ahorro administrativo y contable',     descripcion: 'Q350,000 · Reportes y exportaciones automáticas desde el dashboard' },
-  { beneficio: 'Alcance publicitario digital',         descripcion: 'Q260,000 · Visibilidad en plataforma vs. publicidad tradicional' }
+  { beneficio: 'Ahorro en boletos físicos Q20,000',            descripcion: '' },
+  { beneficio: 'Eficiencia de staff en puerta Q350,000',        descripcion: '' },
+  { beneficio: 'Mitigación de fraude y falsificación Q185,000', descripcion: '' },
+  { beneficio: 'Ahorro administrativo y contable Q40,000',     descripcion: ' ' },
+  { beneficio: 'Alcance publicitario digital Q260,000',         descripcion: '' }
 ]
 
       },
       s9: {
         titulo: 'Indicadores Financieros',
-        nota: 'Basado en flujo mensual proyectado del cliente de Q145.000,00',
+        nota: 'Basado en flujo mensual proyectado del cliente de Q145,000.00',
         indicadores: [
-          { nombre: 'ROI',     valor: '33.39%', col: '' },
-          { nombre: 'TMAR',    valor: '24%',    col: 'purple' },
-          { nombre: 'ROA',     valor: '74.70%', col: '' },
+          { nombre: 'ROI',     valor: '33.39%',  col: '' },
+          { nombre: 'TMAR',    valor: '24%',     col: 'purple' },
+          { nombre: 'ROA',     valor: '74.70%',  col: '' },
           { nombre: 'Retorno', valor: '6 Meses', col: '' }
         ],
         resumen: [
-          { label: 'Beneficio Esperado', valor: 'Q855,000.00' },
-          { label: 'Costo equpo desarrollo',      valor: '490,000.00' },
-          { label: 'Otros costos Directos',      valor: 'Q152,000.00' },
-          { label: 'Mitigación y Gestión de Riesgos',      valor: 'Q228,000.00' },
+          { label: 'Beneficio Esperado Anual',              valor: 'Q855,000.00' },
+          { label: 'Costo equipo desarrollo',         valor: 'Q490,000.00' },
+          { label: 'Otros costos directos',           valor: 'Q152,000.00' },
+          { label: 'Mitigación y Gestión de Riesgos', valor: 'Q228,000.00' }
+        ],
+        clienteIndicadores: [
+          { nombre: 'ROI',     valor: '33.39%',  col: '' },
+          { nombre: 'TMAR',    valor: '24%',     col: 'purple' },
+          { nombre: 'Retorno', valor: '6 Meses', col: '' }
+        ],
+        clienteResumen: [
+          { label: 'Beneficio Esperado Anual', valor: 'Q855,000.00' },
+          { label: 'Flujo Mensual',      valor: 'Q145,000.00' }
         ]
       }
     },
