@@ -205,7 +205,7 @@ const METODOLOGIAS = {
           items: [
             { label: 'Entregables por ciclo',    valor: 'Demo funcional en vivo al cierre de cada uno de los 12 ciclos' },
             { label: 'Variación máxima de costo', valor: '5% sobre el presupuesto aprobado' },
-            { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa por Facturas Electronicas' },
+            { label: 'Integridad de pagos',       valor: '0 transacciones perdidas — trazabilidad completa de pago' },
             { label: 'Integridad de la solución',      valor: '≥ 99.5% validado con pruebas de carga antes de la entrega final' },
             { label: 'Al cierre del proyecto',    valor: 'Código fuente + documentación + credenciales + 2 sesiones de traspaso' }
           ]
