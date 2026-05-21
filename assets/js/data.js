@@ -232,7 +232,7 @@ tabla: [
           { nombre: 'Retorno', valor: '6 Meses', col: '' }
         ],
         resumen: [
-          { label: 'Beneficio Esperado Anual',              valor: 'Q855,000.00' },
+          { label: 'Beneficio Esperado Anual',              valor: 'Q1,740,000.00' },
           { label: 'Costo equipo desarrollo',         valor: 'Q490,000.00' },
           { label: 'Otros costos directos',           valor: 'Q152,000.00' },
           { label: 'Mitigación y Gestión de Riesgos', valor: 'Q228,000.00' }
@@ -243,7 +243,7 @@ tabla: [
           { nombre: 'Retorno', valor: '6 Meses', col: '' }
         ],
         clienteResumen: [
-          { label: 'Beneficio Esperado Anual', valor: 'Q855,000.00' },
+          { label: 'Beneficio Esperado Anual', valor: 'Q1,740,000.00' },
           { label: 'Flujo Mensual',      valor: 'Q145,000.00' }
         ]
       }
