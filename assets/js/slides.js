@@ -400,9 +400,7 @@ function renderS5(data) {
 function renderS6(data) {
   var s = data.slides.s6;
   var cards = s.tabla.map(function(r) {
-    var medio = r.impacto === 'Medio';
-    return '<div class="risk-card-v2' + (medio ? ' medio' : '') + '">' +
-      '<div class="risk-impact-pill' + (medio ? ' medio' : '') + '">' + r.impacto + '</div>' +
+    return '<div class="risk-card-v2">' +
       '<div class="risk-scenario-v2">' + r.escenario + '</div>' +
       '<div class="risk-protection-v2">' +
         '<i class="risk-protect-icon">\u2736</i>' + r.proteccion +
