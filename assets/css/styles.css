@@ -1668,14 +1668,14 @@ img { display: block; }
   gap: 8px;
 }
 .s9-resumen-label {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   color: rgba(255,255,255,0.35);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 .s9-resumen-valor {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   color: rgba(255,255,255,0.9);
 }
