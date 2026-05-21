@@ -258,7 +258,7 @@ function renderS3(data) {
       '<div class="anim-4">' + bullets + '</div>' +
       timelineHtml +
     '</div>' +
-      '<img src="assets/img/presentacionClinica (9).png" class="split-img-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="">' +
+      '<img src="assets/img/presentacionClinica (3).svg" class="split-img-slot" style="width:100%;height:100%;object-fit:cover;display:block;" alt="">' +
       '<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(26,23,69,0.45) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>' +
     '</div>' +
     '<div class="gradient-strip"></div>' +

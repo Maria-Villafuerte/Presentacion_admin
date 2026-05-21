@@ -157,7 +157,7 @@ const METODOLOGIAS = {
           { ciclo: 'Sprint 6',  semanas: '11–12', entregable: 'Editar, duplicar, borradores, reprogramar y cancelar' },
           { ciclo: 'Sprint 7',  semanas: '13–14', entregable: 'Comentarios, calificaciones y links para compartir' },
           { ciclo: 'Sprint 8',  semanas: '15–16', entregable: 'Validación de entradas QR y check-in' },
-          { ciclo: 'Sprint 9',  semanas: '17–18', entregable: 'Notificaciones y en plataforma' },
+          { ciclo: 'Sprint 9',  semanas: '17–18', entregable: 'Notificaciones' },
           { ciclo: 'Sprint 10', semanas: '19–20', entregable: 'Dashboard, métricas, reportes y exportaciones' },
           { ciclo: 'Sprint 11', semanas: '21–22', entregable: 'Monitoreo, bitácoras, alertas y soporte técnico' }
         ]
@@ -165,9 +165,7 @@ const METODOLOGIAS = {
       s3: {
         titulo: 'Cronograma',
         items: [
-          '12 ciclos de 2 semanas = 6 meses en total',
-          'Revisión en vivo al cierre de cada ciclo',
-          'Entrega final: cierre del mes 6'
+          '12 ciclos de 2 semanas = 6 meses en total'
         ]
       },
       s4: {
@@ -283,7 +281,7 @@ tabla: [
         { id: 'S6',  semanas: 'S11–12', nombre: 'Editar, duplicar, borradores, reprogramar y cancelar', color: '#1D9E75' },
         { id: 'S7',  semanas: 'S13–14', nombre: 'Comentarios, calificaciones y links para compartir', color: '#7F77DD' },
         { id: 'S8',  semanas: 'S15–16', nombre: 'Validación de entradas QR y check-in', color: '#7F77DD' },
-        { id: 'S9',  semanas: 'S17–18', nombre: 'Notificaciones y en plataforma',  color: '#7F77DD' },
+        { id: 'S9',  semanas: 'S17–18', nombre: 'Notificaciones',  color: '#7F77DD' },
         { id: 'S10', semanas: 'S19–20 ', nombre: 'Dashboard, métricas, reportes y exportaciones', color: '#BA7517' },
         { id: 'S11', semanas: 'S21–22', nombre: 'Monitoreo, bitácoras, alertas y soporte técnico', color: '#BA7517' }
       ],

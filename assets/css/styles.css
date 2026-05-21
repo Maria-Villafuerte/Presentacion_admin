@@ -1308,7 +1308,7 @@ img { display: block; }
 /* Para S8: imagen izquierda, contenido derecho oscuro */
 .s-split-left { grid-template-columns: 50% 50%; }
 /* Para S3: contenido izquierdo, imagen derecha */
-.s-split-right { grid-template-columns: 30% 70%; }
+.s-split-right { grid-template-columns: 15% 85%; }
 
 /* ════════════════════════════════════════
    GLASSMORPHISM CARDS
@@ -1485,14 +1485,14 @@ img { display: block; }
 .team-portrait-wrap.orange { border-color: var(--ev-orange-tint); }
 .team-portrait-wrap.purple { border-color: var(--ev-purple-tint); }
 .team-role-v2 {
-  font-size: 22px;
+  font-size: 37px;
   font-weight: 700;
   color: var(--ev-dark);
   text-align: center;
   line-height: 1.25;
 }
 .team-type-v2 {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
   color: var(--ev-gray);
   text-align: center;
